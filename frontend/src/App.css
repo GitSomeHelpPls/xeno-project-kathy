@@ -1,0 +1,45 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: #1a1a1a;
+  color: #ffffffde;
+}
+
+.container {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background-color: #242424;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  border: 1px solid #333;
+}
+
+.stat-card h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: #ffffff99;
+  font-weight: 500;
+}
+
+.stat-card p {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+}

@@ -1,0 +1,97 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// NEW: Model for user accounts
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String   // This will be a hashed password
+  createdAt DateTime @default(now())
+
+  // A user can have one store (tenant)
+  store     Store?
+}
+
+model Store {
+  id          String   @id @default(cuid())
+  shopName    String   @unique
+  accessToken String
+  createdAt   DateTime @default(now())
+
+  // A store belongs to one user
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String   @unique // Each store is owned by one user
+
+  // Relationships to other data models
+  products    Product[]
+  customers   Customer[]
+  orders      Order[]
+  customEvents CustomEvent[]
+}
+
+model Product {
+  id               String @id @default(cuid())
+  shopifyProductId String @unique
+  title            String
+  price            Float
+  createdAt        DateTime @default(now())
+
+  store            Store    @relation(fields: [storeId], references: [id])
+  storeId          String
+}
+
+model Customer {
+  id                String  @id @default(cuid())
+  shopifyCustomerId String  @unique
+  email             String?
+  firstName         String?
+  lastName          String?
+  createdAt         DateTime @default(now())
+
+  orders            Order[]
+  store             Store   @relation(fields: [storeId], references: [id])
+  storeId           String
+}
+
+model Order {
+  id             String    @id @default(cuid())
+  shopifyOrderId String    @unique
+  totalPrice     Float
+  createdAt      DateTime
+  lineItems      LineItem[]
+
+  store          Store     @relation(fields: [storeId], references: [id])
+  storeId        String
+  customer       Customer  @relation(fields: [customerId], references: [id])
+  customerId     String
+}
+
+model LineItem {
+  id               String @id @default(cuid())
+  shopifyProductId String?
+  quantity         Int
+  price            Float
+
+  order            Order  @relation(fields: [orderId], references: [id])
+  orderId          String
+}
+
+model CustomEvent {
+  id        String   @id @default(cuid())
+  eventType String
+  eventData Json
+  createdAt DateTime @default(now())
+
+  store     Store    @relation(fields: [storeId], references: [id])
+  storeId   String
+}
+
