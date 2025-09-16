@@ -201,7 +201,7 @@ const Dashboard = () => {
       // Show notification
       if (Notification.permission === 'granted') {
         new Notification('Order Payment Received!', {
-          body: `Payment for Order #${orderData.order_number || 'Unknown'} - $${orderData.total_price || '0.00'}`,
+          body: `Payment for Order #${orderData.order_number || 'Unknown'} - ₹${orderData.total_price || '0.00'}`,
           icon: '/shopify-icon.png'
         });
       }
@@ -278,7 +278,7 @@ const Dashboard = () => {
       // Show notification
       if (Notification.permission === 'granted') {
         new Notification('New Shopify Order!', {
-          body: `Order #${orderData.order_number || 'Unknown'} - $${orderData.total_price || '0.00'}`,
+          body: `Order #${orderData.order_number || 'Unknown'} - ₹${orderData.total_price || '0.00'}`,
           icon: '/shopify-icon.png'
         });
       }
@@ -563,9 +563,9 @@ const Dashboard = () => {
   }
 
   const formatCurrency = (value) => {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('en-IN', {
       style: 'currency',
-      currency: 'USD',
+      currency: 'INR',
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }).format(value || 0);
