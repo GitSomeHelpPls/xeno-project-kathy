@@ -3,7 +3,7 @@ import axios from 'axios';
 // Create axios instance
 const api = axios.create({
   baseURL: import.meta.env.PROD 
-    ? 'https://xeno-katherine-production.up.railway.app' 
+    ? 'https://xeno-project-kathy-production.up.railway.app' 
     : 'http://localhost:8080',
   withCredentials: true,
 });

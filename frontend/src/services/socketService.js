@@ -7,7 +7,14 @@ class SocketService {
     this.listeners = new Map();
   }
 
-  connect(serverUrl = 'http://localhost:3001') {
+  connect(serverUrl) {
+    // Auto-detect server URL if not provided
+    if (!serverUrl) {
+      serverUrl = import.meta.env.PROD 
+        ? 'https://xeno-project-kathy-production.up.railway.app'
+        : 'http://localhost:3001';
+    }
+    
     if (this.socket && this.isConnected) {
       console.log('Socket already connected');
       return;

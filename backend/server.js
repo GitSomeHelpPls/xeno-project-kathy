@@ -66,8 +66,29 @@ app.use(cookieParser());
 app.use('/api/auth', authRoutes);
 
 // Example health check route
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok' });
+app.get('/api/health', async (req, res) => {
+  try {
+    // Test database connection
+    await prisma.$queryRaw`SELECT 1`;
+    
+    res.json({ 
+      status: 'ok',
+      timestamp: new Date().toISOString(),
+      database: 'connected',
+      environment: process.env.NODE_ENV || 'development',
+      port: PORT
+    });
+  } catch (error) {
+    logger.error('Health check failed', { error: error.message });
+    res.status(503).json({ 
+      status: 'error',
+      timestamp: new Date().toISOString(),
+      database: 'disconnected',
+      error: error.message,
+      environment: process.env.NODE_ENV || 'development',
+      port: PORT
+    });
+  }
 });
 
 // One-time production setup endpoint
