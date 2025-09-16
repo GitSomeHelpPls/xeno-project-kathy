@@ -10,10 +10,10 @@ When an order is placed on the connected Shopify store, webhooks instantly notif
 
 ## Demo & Live URLs
 
-- **Frontend Dashboard:** [https://xeno-project-kathy.vercel.app/](https://xeno-project-kathy.vercel.app/)
-- **Backend API Base:** [https://xeno-project-kathy-production.up.railway.app/](https://xeno-project-kathy-production.up.railway.app/) *(API only - no web interface)*
-- **Health Check:** [https://xeno-project-kathy-production.up.railway.app/api/health](https://xeno-project-kathy-production.up.railway.app/api/health)
-- **Connected Shopify Store:** [https://xeno-project-kathy.myshopify.com/](https://xeno-project-kathy.myshopify.com/) *(Live store integration)*
+- **Frontend Dashboard:** <a href="https://xeno-project-kathy.vercel.app/" target="_blank">https://xeno-project-kathy.vercel.app/</a>
+- **Backend API Base:** <a href="https://xeno-project-kathy-production.up.railway.app/" target="_blank">https://xeno-project-kathy-production.up.railway.app/</a> *(API only - no web interface)*
+- **Health Check:** <a href="https://xeno-project-kathy-production.up.railway.app/api/health" target="_blank">https://xeno-project-kathy-production.up.railway.app/api/health</a>
+- **Connected Shopify Store:** <a href="https://xeno-project-kathy.myshopify.com/" target="_blank">https://xeno-project-kathy.myshopify.com/</a> *(Live store integration)*
 
 ## Dashboard Login Credentials
 
@@ -661,12 +661,12 @@ npm run dev
 <tr>
 <td><strong>Frontend</strong></td>
 <td>Vercel</td>
-<td><a href="https://xeno-project-kathy.vercel.app">xeno-project-kathy.vercel.app</a></td>
+<td><a href="https://xeno-project-kathy.vercel.app" target="_blank">xeno-project-kathy.vercel.app</a></td>
 </tr>
 <tr>
 <td><strong>Backend API</strong></td>
 <td>Railway</td>
-<td><a href="https://xeno-project-kathy-production.up.railway.app/api/health">API Health Check</a></td>
+<td><a href="https://xeno-project-kathy-production.up.railway.app/api/health" target="_blank">API Health Check</a></td>
 </tr>
 <tr>
 <td><strong>Database</strong></td>
@@ -676,7 +676,7 @@ npm run dev
 <tr>
 <td><strong>Connected Store</strong></td>
 <td>Shopify</td>
-<td><a href="https://xeno-project-kathy.myshopify.com">Live Shopify Store</a></td>
+<td><a href="https://xeno-project-kathy.myshopify.com" target="_blank">Live Shopify Store</a></td>
 </tr>
 <tr>
 <td><strong>Redis Cache</strong></td>
