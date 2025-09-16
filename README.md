@@ -10,10 +10,10 @@ When an order is placed on the connected Shopify store, webhooks instantly notif
 
 ## Demo & Live URLs
 
-- **Frontend Dashboard:** <a href="https://xeno-project-kathy.vercel.app/" target="_blank">https://xeno-project-kathy.vercel.app/</a>
-- **Backend API Base:** <a href="https://xeno-project-kathy-production.up.railway.app/" target="_blank">https://xeno-project-kathy-production.up.railway.app/</a> *(API only - no web interface)*
-- **Health Check:** <a href="https://xeno-project-kathy-production.up.railway.app/api/health" target="_blank">https://xeno-project-kathy-production.up.railway.app/api/health</a>
-- **Connected Shopify Store:** <a href="https://xeno-project-kathy.myshopify.com/" target="_blank">https://xeno-project-kathy.myshopify.com/</a> *(Live store integration)*
+- **Frontend Dashboard:** <a href="https://xeno-project-kathy.vercel.app/" target="_blank">Dashboard Link</a>
+- **Backend API Base:** <a href="https://xeno-project-kathy-production.up.railway.app/" target="_blank">Base API URL</a> *(API only - no web interface)*
+- **Health Check:** <a href="https://xeno-project-kathy-production.up.railway.app/api/health" target="_blank">API Health Check</a>
+- **Connected Shopify Store:** <a href="https://xeno-project-kathy.myshopify.com/" target="_blank">Live Shopify Store</a> *(Live store integration)*
 
 ## Dashboard Login Credentials
 
