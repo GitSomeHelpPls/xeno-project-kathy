@@ -89,6 +89,11 @@ const Dashboard = () => {
       40% { transform: translateY(-4px); }
       60% { transform: translateY(-2px); }
     }
+    
+    /* Hide scrollbar for webkit browsers */
+    *::-webkit-scrollbar {
+      display: none;
+    }
   `;
 
   // Add the style tag if it doesn't exist
@@ -1418,8 +1423,18 @@ const Dashboard = () => {
                     <p style={{ margin: '0 0 0.25rem 0', fontSize: '0.875rem', fontWeight: '500', color: '#111827', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                       Order #{order.shopifyOrderId || order.id}
                     </p>
-                    <p style={{ margin: 0, fontSize: '0.75rem', color: '#6b7280', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    <p style={{ margin: '0 0 0.25rem 0', fontSize: '0.75rem', color: '#6b7280', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                       {order.customer?.firstName || 'Customer'} {order.customer?.lastName || ''}
+                    </p>
+                    <p style={{ margin: 0, fontSize: '0.75rem', color: '#9ca3af', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      {new Date(order.createdAt || order.processedAt).toLocaleString('en-IN', {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: true
+                      })}
                     </p>
                   </div>
                   <span style={{
@@ -1446,7 +1461,9 @@ const Dashboard = () => {
               <div style={{ 
                 maxHeight: '350px', 
                 overflowY: 'auto',
-                overflowX: 'hidden'
+                overflowX: 'hidden',
+                scrollbarWidth: 'none',
+                msOverflowStyle: 'none'
               }}>
                 {productPerformance && productPerformance.length > 0 ? productPerformance.slice(0, 5).map((product, index) => (
                 <div key={index} style={{
